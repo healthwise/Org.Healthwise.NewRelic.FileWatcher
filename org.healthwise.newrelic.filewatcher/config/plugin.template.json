@@ -1,0 +1,17 @@
+{
+  "agents": [
+    {
+      "name": "File Watcher Monitor",
+      "files": [
+        {
+          "displayName": "FileDisplayName1",
+          "path": "C:\\Path\\To\\A\\File.txt"
+        },
+        {
+          "displayName": "FileDisplayName2",
+          "path": "C:\\Path\\To\\Another\\File.txt"
+        }
+      ]
+    }
+  ]
+}
