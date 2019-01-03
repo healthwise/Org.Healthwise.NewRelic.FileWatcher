@@ -68,8 +68,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileItem.cs" />
-    <Compile Include="FileWatcher.cs" />
     <Compile Include="PluginAgent.cs" />
     <Compile Include="PluginAgentFactory.cs" />
     <Compile Include="Program.cs" />

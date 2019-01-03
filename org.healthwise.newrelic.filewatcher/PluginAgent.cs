@@ -8,28 +8,23 @@ namespace org.healthwise.newrelic.filewatcher
     class PluginAgent : Agent
     {
         private readonly string _name;
+        private readonly string _path;
         private readonly Logger _log = Logger.GetLogger(typeof(PluginAgent).Name);
-        private readonly FileWatcher _fileWatcher;
 
 
-        public PluginAgent(string name, IList<FileItem> files)
+        public PluginAgent(string name, string path)
         {
             _name = name;
-            _fileWatcher = new FileWatcher(files);
+            _path = path;
         }
 
         public override void PollCycle()
         {
             try
             {
-                var fileStatus = _fileWatcher.GetFileStatus();
-                foreach (var displayName in fileStatus.Keys)
-                {
-                    float fileExists = fileStatus[displayName] ? 1 : 0;
-                    _log.Info("Reporting Metric plugin/files/{0} {1}", displayName, fileExists);
-                    ReportMetric("plugin/files/" + displayName, "value", fileExists);
-                }
-
+                float fileExists = System.IO.File.Exists(_path) ? 1 : 0;
+                _log.Info("Reporting Metric plugin/file", fileExists);
+                ReportMetric("plugin/file", "value", fileExists);
             }
             catch (Exception ex)
             {
@@ -47,6 +42,7 @@ namespace org.healthwise.newrelic.filewatcher
         {
             get { return "org.healthwise.newrelic.filewatcher"; }
         }
+
         public override string Version
         {
             get { return typeof(PluginAgent).Assembly.GetName().Version.ToString(); }
