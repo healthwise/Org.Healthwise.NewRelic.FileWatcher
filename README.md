@@ -14,10 +14,16 @@ This plugin will query the existence of file(s) on a file system.
   "agents": [
     {
       "name": "File System Watcher",
-      "files: [
-          "C:\\Path\\To\\Files.txt",
-          "C:\\Path\\To\\AnotherFile.txt"
-      ],
+      "files": [
+          {
+              "displayName":"File1",
+              "path":"C:\\Path\\To\\Files.txt"
+          },
+          {
+              "displayName":"File2",
+              "path":"C:\\Path\\To\\AnotherFile.txt"
+          }
+      ]
     }
   ]
 }
@@ -32,7 +38,18 @@ This plugin will query the existence of file(s) on a file system.
 ```
     "files": "{String}"
 ```
-* An array of strings of the full path to file being checked
+* An array of strings of the full path to file being checked.  Array needs to contain at least one element.
+
+```
+    "displayName": "{String}:
+```
+   * Represents the unique name of the file being watched.  Used for reporting in NewRelic.
+
+```
+    "path": "{String}:
+```
+   * Absolute path to the file being watched.
+
 
 
 # Installation
