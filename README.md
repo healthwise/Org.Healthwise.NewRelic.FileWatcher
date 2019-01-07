@@ -13,11 +13,12 @@ This plugin will query the existence of file(s) on a file system.
 {
   "agents": [
     {
-      "name": "File System Watcher",
-      "files: [
-          "C:\\Path\\To\\Files.txt",
-          "C:\\Path\\To\\AnotherFile.txt"
-      ],
+      "name": "A File",
+      "path": "C:\\Path\\To\\A\\File.txt"
+    },
+    {
+      "name": "Another File",
+      "path": "C:\\Path\\To\\Another\\File.txt"
     }
   ]
 }
@@ -27,13 +28,12 @@ This plugin will query the existence of file(s) on a file system.
 ```
     name: "{String}"
 ```
-   * Represents the name of the monitor being deployed
+   * Represents the name of the file watcher agent being deployed
 
 ```
-    "files": "{String}"
+    "path": "{String}:
 ```
-* An array of strings of the full path to file being checked
-
+   * Absolute path to the file being watched.
 
 # Installation
 1. Download release and unzip on machine to handle monitoring.

@@ -1,0 +1,12 @@
+{
+  "agents": [
+    {
+      "name": "File Watcher Monitor",
+      "path": "C:\\Path\\To\\A\\File.txt"
+    },
+    {
+      "name": "File Watcher Monitor",
+      "path": "C:\\Path\\To\\Another\\File.txt"
+    }  
+  ]
+}
