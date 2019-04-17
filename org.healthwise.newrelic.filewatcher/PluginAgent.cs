@@ -9,6 +9,7 @@ namespace org.healthwise.newrelic.filewatcher
     {
         private readonly string _name;
         private readonly string _path;
+        private readonly string _hostname;
         private readonly Logger _log = Logger.GetLogger(typeof(PluginAgent).Name);
 
 
@@ -16,6 +17,8 @@ namespace org.healthwise.newrelic.filewatcher
         {
             _name = name;
             _path = path;
+
+            _hostname = System.Environment.MachineName;
         }
 
         public override void PollCycle()
@@ -35,7 +38,7 @@ namespace org.healthwise.newrelic.filewatcher
 
         public override string GetAgentName()
         {
-            return this._name;
+            return $"{this._name} - {this._hostname}";
         }
 
         public override string Guid
